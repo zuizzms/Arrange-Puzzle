@@ -1,0 +1,129 @@
+Zuizz Saeed
+zuizzms@bu.edu
+
+
+puzzles with 5-move optimal solutions
+-------------------------------------
+algorithm                num. solved    avg. moves    avg. states tested
+------------------------------------------------------------------------
+random			 10		5.0		147.3
+BFS			 10		5.0		47.1
+DFS (depth limit 20)	 10		16.2		19072.7
+DFS (depth limit 50)	 10		48.2		49043.0
+Greedy Search (using h1) 10		5.4		70.3
+A* (using h1)		 10		5.0		6.5
+
+
+
+puzzles with 10-move optimal solutions
+-------------------------------------
+algorithm                num. solved    avg. moves    avg. states tested
+------------------------------------------------------------------------
+random			 9		11.1111111111	7440.222222222223
+BFS			 10		10.0		747.4
+DFS (depth limit 20)	 10		18.8		24858.0
+DFS (depth limit 50)	 10		49.2		92287.3
+Greedy Search (using h1) 8		76.0		325.625
+A* (using h1)		 10		10.0		27.3
+
+
+
+puzzles with 15-move optimal solutions
+-------------------------------------
+algorithm                num. solved    avg. moves    avg. states tested
+------------------------------------------------------------------------
+random			 7		17.5714285714	11210.142857142857
+BFS			 10		15.0		12672.0
+DFS (depth limit 20)	 10		17.8		68659.0
+DFS (depth limit 50)	 10		48.6		111406.0
+Greedy Search (using h1) 6		90.3333333333	2718.0
+A* (using h1)		 10		15.0		313.8
+
+
+In all three tables, it seems that A* consistently solves the puzzle in the optimal number of moves. In puzzles with 5-move optimal solutions, every search
+method was able to solve all the puzzles. In addition, A* always had the lowest average states tested, so it seems to be the most efficient in solving the
+puzzles. When the puzzles got more complicated (needed more moves to solve them), search methods like random became less practical and efficient.
+In the puzzles with 15-move optimal solutions, random was only able to solve 7 puzzles and its average states tested was very high at about 11210.12. While
+testing, a time alloweance of 30 seconds was set for the searcher methods to solve each puzzle. If 30 seconds was reached, the search was terminated. From
+the tables, we can see that the only two search methods that could not consistently solve all 10 puzzles were random and Greedy Search using h1. It makes
+sense that A* is more efficient that Greedy because it also takes into account the cost that has already been expended to get to that state. The heuristic
+function h1 is also not always accurate in finding the best solution because oftentimes a solution could be very close but since h1 only can tell the number
+of misplaced positions, it doesn't always choose the right path. This can serve to explain why Greedy using h1 falls off. We can also see when comparing DFS
+(depth limit 20) and DFS (depth limit 50) that the average number of moves and average number of states tested is more for the greater depth limit. This
+ makes sense because when you have a greater depth limit, you test more paths and do not terminate a certain path as early. For example, in the puzzles with
+10-move optimal solutions, DFS (depth limit 20) has an average number of moves of 18.8 while DFS (depth limit 50) has an average number of moves of 49.2. In
+the table for 15-move optimal solutions, this trend holds. Lastly, Greedy Search has the highest number of average moves when the puzzles get more
+complicated. Only in the puzzles with 5-move optimal solutions is Greedy not the highest in average number of moves, indicating that Greedy works better
+with less complicated puzzles.
+
+
+heuristic h2
+------------
+This heuristic computes the sum of the number of incorrect rows and incorrect columns (as suggested from lecture). There are two methods in the board class
+that help to do this. incRows counts the number of incorrect rows there are and incCols counts the number of incorrect columns. The h2 function then calls
+these two board methods and adds them together. This makes it so that instead of only counting the number of misplaced tiles, tiles that are more out of
+place count for more (ie, if they are in the wrong row AND column, they count for more).
+
+
+
+puzzles with 18-move optimal solutions
+--------------------------------------
+algorithm              num. solved    avg. moves    avg. states tested
+----------------------------------------------------------------------
+Greedy (heuristic h1)	7		133.7142857	4594.0
+Greedy (heuristic h2)	10		74.8		254.2
+
+A* (heuristic h1)	10		18.0		1602.0
+A* (heuristic h2)	10		18.0		510.9
+
+
+
+puzzles with 21-move optimal solutions
+--------------------------------------
+algorithm              num. solved    avg. moves    avg. states tested
+----------------------------------------------------------------------
+Greedy (heuristic h1)	5		104.6		4172.6
+Greedy (heuristic h2)	10		83.4		397.7
+
+A* (heuristic h1)	10		21.0		6301.7
+A* (heuristic h2)	10		21.0		1499.6
+
+
+
+puzzles with 24-move optimal solutions
+--------------------------------------
+algorithm              num. solved    avg. moves    avg. states tested
+----------------------------------------------------------------------
+Greedy (heuristic h1)	6		123.666666667	2856.1666666666665
+Greedy (heuristic h2)	10		114.0		400.4
+
+A* (heuristic h1)	1		24.0		20787.0	
+A* (heuristic h2)	10		24.0		5303.0
+
+
+
+puzzles with 27-move optimal solutions
+--------------------------------------
+algorithm              num. solved    avg. moves    avg. states tested
+----------------------------------------------------------------------
+Greedy (heuristic h1)	4		197.5		4285.5
+Greedy (heuristic h2)	10		117.0		402.5
+
+A* (heuristic h1)	0		N/A		N/A
+A* (heuristic h2)	1		27.0		17549.0
+
+
+It is clear from all four tables that the h2 heuristic function improved the accuracy/efficiency of the searcher. This makes sense because h2 takes into
+account exactly how misplaced a certain tile is (row and column), rather than if it is misplaced or not (which is what h1 does). For example, in puzzles
+with 18-move optimal solutions, the average number of moves for Greedy search goes from 133.7 to 74.8 when we switch from h1 to h2. The average number of
+states tested also goes down from 4594.0 to 254.2, indicating that it is more effective in finding the solution. This trend holds for the 21, 24, and 27
+move optimal solution tables, where the average number of moves and states tested goes down when you use h2 instead of h1, for both Greedy and A* search.
+It is also important to note that the 27 move puzzle for A* h1 could not solve any puzzles but when we switched to h2, it could at least solve 1 (with the
+optimal number of moves too!). In some parts of the results we can also see that using h2 allowed the search algorithms to solve more puzzles. For example,
+in the 24-move optimal solutions puzzles, the number of solved puzzles went from 6 to 10 for the Greedy Search and 1 to 10 for the A* search. In all cases,
+A* was able to solve the puzzles in the optimal number of moves. This pattern holds for each table, where using h2 makes it so that we can solve more
+puzzles. Thus, taking into account just how misplaced a tile is makes the priority setting better than just counting how many misplaced tiles there are.
+
+
+
+		
