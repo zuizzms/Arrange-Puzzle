@@ -17,7 +17,7 @@ class State:
     """ A class for objects that represent a state in the state-space 
         search tree of an Eight Puzzle.
     """
-    ### Add your method definitions here. ###
+    ### Add method definitions here. ###
     def __init__(self, board, predecessor, move):
         """
         constructs a new State object by initializing the following four 
