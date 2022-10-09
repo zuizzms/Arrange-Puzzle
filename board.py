@@ -42,7 +42,7 @@ class Board:
                     self.blank_r = i
                     self.blank_c = j
 
-    ### Add your other method definitions below. ###
+    ### Add other method definitions below. ###
     def __repr__(self):
         """
         returns a string representation of a Board object with hyphen as blank space
