@@ -16,7 +16,7 @@ class Searcher:
         This will also be used as a superclass of classes for
         other state-space search algorithms.
     """
-    ### Add your Searcher method definitions here. ###
+    ### Add Searcher method definitions here. ###
     def __init__(self, depth_limit):
         """
         constructs a new Searcher object by initializing:
@@ -95,7 +95,7 @@ class Searcher:
         return s
 
 
-### Add your BFSeacher and DFSearcher class definitions below. ###
+### Add BFSeacher and DFSearcher class definitions below. ###
 class BFSearcher(Searcher):
     """ A Class for searcher objects that perform breadth-first search (BFS) 
     instead of random search. BFS involves always choosing one the untested
@@ -133,7 +133,7 @@ def h0(state):
     """ a heuristic function that always returns 0 """
     return 0
 
-### Add your other heuristic functions here. ###
+### Add other heuristic functions here. ###
 def h1(state):
     """
     computes and returns an estimate of how many additional moves are needed
@@ -196,7 +196,7 @@ class GreedySearcher(Searcher):
         self.states.remove(highest)
         return highestState
 
-### Add your AStarSeacher class definition below. ###
+### Add AStarSeacher class definition below. ###
 class AStarSearcher(GreedySearcher):
     """
     class for informed search algorithm that assigns a priority to each state
