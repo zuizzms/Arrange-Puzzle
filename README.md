@@ -17,4 +17,6 @@ A puzzle is represented by a string of digits, where the 0 represents the blank 
 
 ![image](https://user-images.githubusercontent.com/50706134/194731223-77ec200a-763d-4d3e-9e76-3a9f29c17a78.png)
 
+The file results.txt compares search algorithms and highlights each algorithm's performance when solving puzzles that are different lengths away from being solved.
+
 
