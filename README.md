@@ -20,7 +20,7 @@ A puzzle is represented by a string of digits, where the 0 represents the blank 
 The file results.txt compares search algorithms and highlights each algorithm's performance when solving puzzles that are different lengths away from being solved.
 
 The algorithms compared include:
-- Random Search
+- Random Search: randomly applies state-space search
 - Breadth First Search (BFS): chooses one the untested states that has the smallest depth (i.e., the smallest number of moves from the initial state)
 - Depth First Search (DFS): chooses one the untested states that has the largest depth (i.e., the largest number of moves from the initial state)
 - Greedy Search: informed search algorithm that uses a heuristic function to estimate the remaining cost needed to get from a given state to the goal state (for the Eight Puzzle, this is just an estimate of how many additional moves are needed). Greedy Search uses this heuristic function when computing the priority of each state, and it selects the next state based on those priorities
